@@ -17,7 +17,7 @@ package com.ogaclejapan.arclayout;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.TypedArray;
+//import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -72,21 +72,15 @@ public class ArcLayout extends ViewGroup {
   protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     setWillNotDraw(false);
 
-    final TypedArray a = context.getTheme().obtainStyledAttributes(
-        attrs, R.styleable.arc_ArcLayout, defStyleAttr, defStyleRes);
-    int arcOrigin = a.getInt(
-        R.styleable.arc_ArcLayout_arc_origin, DEFAULT_ORIGIN);
-    int arcColor = a.getColor(
-        R.styleable.arc_ArcLayout_arc_color, DEFAULT_COLOR);
-    int arcRadius = a.getDimensionPixelSize(
-        R.styleable.arc_ArcLayout_arc_radius, DEFAULT_RADIUS);
-    int arcAxisRadius = a.getDimensionPixelSize(
-        R.styleable.arc_ArcLayout_arc_axisRadius, DEFAULT_AXIS_RADIUS);
-    boolean isArcFreeAngle = a.getBoolean(
-        R.styleable.arc_ArcLayout_arc_freeAngle, DEFAULT_FREE_ANGLE);
-    boolean isArcReverseAngle = a.getBoolean(
-        R.styleable.arc_ArcLayout_arc_reverseAngle, DEFAULT_REVERSE_ANGLE);
-    a.recycle();
+   // final TypedArray a = context.getTheme().obtainStyledAttributes(
+    //    attrs, R.styleable.arc_ArcLayout, defStyleAttr, defStyleRes);
+    int arcOrigin = DEFAULT_ORIGIN;
+    int arcColor =  DEFAULT_COLOR;
+    int arcRadius = DEFAULT_RADIUS;
+    int arcAxisRadius = DEFAULT_AXIS_RADIUS;
+    boolean isArcFreeAngle = DEFAULT_FREE_ANGLE;
+    boolean isArcReverseAngle = DEFAULT_REVERSE_ANGLE;
+  //  a.recycle();
 
     if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
       arcOrigin = ArcOrigin.getAbsoluteOrigin(arcOrigin, getLayoutDirection());
@@ -371,11 +365,10 @@ public class ArcLayout extends ViewGroup {
 
     public LayoutParams(Context c, AttributeSet attrs) {
       super(c, attrs);
-      TypedArray a = c.getTheme()
-          .obtainStyledAttributes(attrs, R.styleable.arc_ArcLayout_Layout, 0, 0);
-      origin = a.getInt(R.styleable.arc_ArcLayout_Layout_arc_origin, DEFAULT_CHILD_ORIGIN);
-      angle = a.getFloat(R.styleable.arc_ArcLayout_Layout_arc_angle, DEFAULT_CHILD_ANGLE);
-      a.recycle();
+      TypedArray a =  0, 0;
+      origin =  DEFAULT_CHILD_ORIGIN;
+      angle = DEFAULT_CHILD_ANGLE;
+  //    a.recycle();
     }
 
     public LayoutParams(int width, int height) {
